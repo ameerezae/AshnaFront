@@ -1,0 +1,17 @@
+@font-face{
+    font-family: shabnam;
+    src: url(../../fonts/Shabnam-Bold.ttf);
+}
+ * {
+     background-color: white;
+ }
+ 
+
+
+.Shabnam {
+    font-family : shabnam;
+    color: red;
+    font-size: 70px;
+    text-align: center;
+    background-color: red;
+}

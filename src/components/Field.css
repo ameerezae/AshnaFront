@@ -1,0 +1,16 @@
+.labeling {
+    border: 0px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    text-align: right;
+    float: right; }
+  
+  .title_top {
+    margin-top: .5rem;
+    margin-bottom: .1rem; }
+  
+  .title {
+    text-align: right;
+    float: right;
+    background-color: #F5F5F5;
+    color: #999999; }
+  
