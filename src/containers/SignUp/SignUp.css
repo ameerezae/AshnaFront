@@ -84,10 +84,9 @@ input {
   padding: 10px;
   border: none;
   border-radius: 8px; }
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none; }
+  input:focus {
+    background-color: #ddd;
+    outline: none; }
 
 .picture {
   background-image: url(../../assets/register.png);
@@ -138,6 +137,10 @@ input[type=text]:focus, input[type=password]:focus {
 #toggle_1 {
   /* opacity 0 so that it can be read by screen readers */
   opacity: 0; }
+  #toggle_1:checked ~ #label_1 #switch_1 {
+    background: #13e76c;
+    transform: translatex(2.1em);
+    transition: transform 0.2s ease-in; }
 
 #label_1 {
   top: 27rem;
@@ -159,9 +162,4 @@ input[type=text]:focus, input[type=password]:focus {
   border-radius: 0.1em;
   background: #e94634;
   box-shadow: 5px 0px 28px -9px rgba(0, 0, 0, 0.75);
-  transition: transform 0.2s ease-in; }
-
-#toggle_1:checked ~ #label_1 #switch_1 {
-  background: #13e76c;
-  transform: translatex(2.1em);
   transition: transform 0.2s ease-in; }
