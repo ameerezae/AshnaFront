@@ -12,26 +12,7 @@ class Login extends Component {
     }
   }
 
-  handle_login = (e, data) => {
-    // e.preventDefault();
-    console.log("ready to send data")
-    fetch('http://localhost:8000/token-auth/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(json => {
-        localStorage.setItem('token', json.token);
-        this.setState({
-          logged_in: true,
-          displayed_form: '',
-          username: json.user.username
-        });
-      });
-  };
+  
   
   handleChange = (event) => {
     const name = event.target.name;
@@ -47,6 +28,27 @@ class Login extends Component {
   componentDidMount() {
     document.body.classList.add("background");
   } 
+
+  handle_login = (event, data) => {
+    // e.preventDefault();
+    console.log("ready to send data")
+    fetch('http://127.0.0.1:8000/login/charity/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+      .then(json => this.checkErorr(json.Error))
+  };
+
+  
+  checkErorr = (error) => {
+      if(error != ""){
+        console.log(error)
+      }
+      else console.log("ok")
+  }
   
   render() {
     
