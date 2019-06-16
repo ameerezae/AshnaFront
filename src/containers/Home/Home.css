@@ -1,0 +1,10 @@
+@font-face{
+    font-family: shabnam;
+    src: url(../../fonts/Shabnam-Bold.ttf);
+}
+
+.Setfont {
+    font-family : shabnam;
+    color: red;
+    background-color: red;
+}

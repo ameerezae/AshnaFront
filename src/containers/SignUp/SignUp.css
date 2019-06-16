@@ -1,0 +1,167 @@
+@font-face {
+  font-family: shabnam;
+  src: url(../../fonts/Shabnam.ttf); }
+
+@font-face {
+  font-family: shabnam_bold;
+  src: url(../../fonts/Shabnam-Bold.ttf); }
+
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+  line-height: 1.7;
+  font-family: shabnam; }
+
+.contain {
+  background-color: #F5F5F5;
+  position: absolute;
+  width: 35rem;
+  height: 35rem;
+  top: 3.8rem;
+  right: 9rem;
+  box-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5); }
+
+.head {
+  text-align: center;
+  background-color: #F5F5F5;
+  font-family: shabnam_bold;
+  font-size: 2rem;
+  top: 3rem;
+  margin-top: .5rem; }
+
+#date {
+  top: 8rem;
+  right: 1.5rem;
+  float: right;
+  background-color: #F5F5F5;
+  position: absolute;
+  color: #999999; }
+
+#getStuff {
+  top: 22rem;
+  right: 1.5rem;
+  float: right;
+  background-color: #F5F5F5;
+  position: absolute;
+  color: #999999; }
+
+#otherCenter {
+  top: 27rem;
+  right: 1.5rem;
+  float: right;
+  background-color: #F5F5F5;
+  position: absolute;
+  color: #999999; }
+
+.top {
+  margin-top: 2.5rem; }
+
+.labeling {
+  border: 0px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: right;
+  float: right; }
+
+.checkbox_top {
+  margin-top: 1.5rem; }
+
+.title_top {
+  margin-top: .5rem;
+  margin-bottom: .1rem; }
+
+.title {
+  margin-bottom: 0%;
+  text-align: right;
+  float: right;
+  background-color: #F5F5F5;
+  color: #999999; }
+
+.color {
+  background-color: #F5F5F5; }
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px; }
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none; }
+
+.picture {
+  background-image: url(../../assets/register.png);
+  background-repeat: no-repeat;
+  height: 25rem;
+  top: 8rem;
+  left: 8rem;
+  position: relative; }
+
+.button_1 {
+  cursor: pointer;
+  padding: .3rem;
+  color: #F5F5F5;
+  border-radius: 5px;
+  background-color: #5084D2;
+  width: 100%;
+  border: none; }
+
+.button_2 {
+  cursor: pointer;
+  padding: .3rem;
+  color: #F5F5F5;
+  border-radius: 5px;
+  position: absolute;
+  background-color: #50D282;
+  top: 31rem;
+  width: 95%;
+  border: none; }
+
+.button_0 {
+  padding: .3rem;
+  color: #F5F5F5;
+  border-radius: 5px;
+  background-color: grey;
+  width: 100%;
+  border: none; }
+
+.button_3 {
+  padding: .3rem;
+  color: #F5F5F5;
+  border-radius: 5px;
+  position: absolute;
+  background-color: grey;
+  top: 31rem;
+  width: 95%;
+  border: none; }
+
+#toggle_1 {
+  /* opacity 0 so that it can be read by screen readers */
+  opacity: 0; }
+
+#label_1 {
+  top: 27rem;
+  left: 2.2rem;
+  display: block;
+  position: absolute;
+  background: #d4caca;
+  width: 4em;
+  height: 1.85em;
+  border-radius: 0.01em;
+  cursor: pointer; }
+
+#switch_1 {
+  position: absolute;
+  width: 1.8em;
+  height: 1.8em;
+  margin-top: 0.05em;
+  margin-left: 0.05em;
+  border-radius: 0.1em;
+  background: #e94634;
+  box-shadow: 5px 0px 28px -9px rgba(0, 0, 0, 0.75);
+  transition: transform 0.2s ease-in; }
+
+#toggle_1:checked ~ #label_1 #switch_1 {
+  background: #13e76c;
+  transform: translatex(2.1em);
+  transition: transform 0.2s ease-in; }

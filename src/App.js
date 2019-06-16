@@ -31,6 +31,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import SignUp from './containers/SignUp/SignUp';
+import charityProfile from "./containers/charityProfile/charityProfile";
 class App extends Component {
   
 
@@ -60,6 +61,7 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
               <Route path='/signup' component={SignUp} />
+              <Route path="/charityprofile" component={charityProfile} />
           </Switch>
         </div>
       </Router>

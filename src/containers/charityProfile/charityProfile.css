@@ -1,0 +1,100 @@
+@font-face {
+  font-family: shabnam;
+  src: url(../../fonts/Shabnam.ttf); }
+
+@font-face {
+  font-family: shabnam_bold;
+  src: url(../../fonts/Shabnam-Bold.ttf); }
+
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+  line-height: 1.7;
+  font-family: shabnam; }
+
+.height {
+  height: 100%; }
+
+.header_pannel {
+  font-family: shabnam_bold;
+  font-size: 1.4rem;
+  top: 15%;
+  left: 40%;
+  position: absolute; }
+
+.container_pannel {
+  background-color: #1CACBB;
+  height: 100%;
+  float: right;
+  width: 15%;
+  padding-bottom: 100%; }
+
+.button_pannel {
+  background-color: #1CACBB;
+  border: none;
+  font-size: 1rem;
+  text-align: right;
+  padding: .7rem; }
+  .button_pannel:hover {
+    background-color: #5BBE9A; }
+
+.header_profile {
+  background-color: #F6B7B7;
+  height: 5rem;
+  display: inline-block;
+  width: 85.001%; }
+
+.username_header {
+  text-align: right;
+  padding-right: 2rem;
+  font-family: shabnam_bold;
+  padding-top: 1.5rem; }
+
+.posts_div {
+  background-color: #F7F8FA;
+  width: 90%;
+  height: 400px;
+  margin-left: 10%;
+  margin-bottom: 10px;
+  margin-top: 10%;
+  border-radius: 10px; }
+
+.pix_charityProfile {
+  margin-left: 20%; }
+
+.posts_title {
+  position: relative;
+  color: black;
+  text-align: center;
+  font-family: shabnam_bold;
+  font-size: 1.4rem;
+  padding-top: 5%; }
+
+.posts_content {
+  overflow-wrap: break-word;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: justify;
+  padding-top: 5%;
+  height: 35%; }
+
+.posts_pix {
+  position: relative;
+  padding-left: 36%;
+  padding-top: 5%;
+  padding-bottom: 5%; }
+
+.posts_pix1 {
+  border-radius: 10px; }
+
+.posts_button {
+  border-radius: 5px;
+  position: relative;
+  left: 35%;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 8%; }
+
+.charity_picture {
+  float: right;
+  margin-left: 1%; }
