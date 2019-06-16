@@ -4,16 +4,44 @@ import "../../bootstrap/css/bootstrap.min.css";
 import {Button} from "react-bootstrap";
 import {FormGroup} from "react-bootstrap";
 import logo from "../../assets/charity2-01.png";
+import Alert from 'react-bootstrap/Alert'
 class Login extends Component {
   state = {
     data : {
-      UserName : "",
+      Email : "",
       Password : "",
-    }
+    },
+    Errormessage : "",
+    showErrorMessage : false,
   }
 
-  
-  
+  handle_login = (e, data) => {
+    e.preventDefault();
+    console.log("ready to send data")
+    fetch('http://127.0.0.1:8000/login/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(json => this.checkError(json))
+  };
+  checkError = (json) => {
+    if(json.Error === ""){
+      console.log("loged in");
+      localStorage.setItem("token", json.Token);
+      localStorage.setItem("name",json.Name);
+      this.props.history.push(`my_profile/${json.Name}`);
+      this.setState({showErrorMessage : false})
+      this.setState({Errormessage : ""});
+    }
+    else{
+        this.setState({Errormessage : json.Error});
+        this.setState({showErrorMessage : true});
+    }
+
+  }
   handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -24,33 +52,22 @@ class Login extends Component {
     })
     console.log(name,value);
     console.log(this.state.data);
+    // this.setState({showErrorMessage : true});
+    // console.log(this.state.showErrorMessage)
+    
   }
   componentDidMount() {
     document.body.classList.add("background");
   } 
-
-  handle_login = (event, data) => {
-    // e.preventDefault();
-    console.log("ready to send data")
-    fetch('http://127.0.0.1:8000/login/charity/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }).then(res => res.json())
-      .then(json => this.checkErorr(json.Error))
-  };
-
-  
-  checkErorr = (error) => {
-      if(error != ""){
-        console.log(error)
-      }
-      else console.log("ok")
-  }
   
   render() {
+    let alert = null;
+    if(this.state.showErrorMessage){
+      alert = (<Alert className = "incorrect_alert" variant = "danger">ایمیل یا رمزعبور اشتباه است</Alert>)
+    }
+    else {
+      alert = (<div></div>)
+    }
     
     let LoginForm = (
       <div className="container contain_1">
@@ -66,13 +83,13 @@ class Login extends Component {
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "http://localhost:3000/signup"> عضویت</a></h5>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "http://localhost:3000/signup/charity"> عضویت</a></h5>
         <hr/>
         </div>
-        <form onSubmit={e => this.props.handle_login(e, this.state.data)}>
+        <form action="http://localhost:3000/charities" method="POST" onSubmit={e => this.handle_login(e, this.state.data)}>
         <FormGroup className="top_login" >
         <p className="title_login"> ایمیل</p>
-        <input name = "UserName" value = {this.state.UserName} 
+        <input name = "Email" value = {this.state.Email} 
         onChange={this.handleChange} 
         placeholder = "ایمیل خود را وارد نمایید"className= "input_login" 
         type = "email" required></input>
@@ -84,7 +101,10 @@ class Login extends Component {
         placeholder = "رمز عبور خود را وارد نمایید"className= "input_login" 
         type = "password" required></input>
         </FormGroup>
-        <Button type="submit" variant="success" size="md" className= "login-button" block>
+
+        {alert}
+        
+        <Button  type="submit" variant="success" size="md" className= "login-button" block>
         ورود
         </Button>
         </form>
