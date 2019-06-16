@@ -3,7 +3,8 @@ import "../../bootstrap/css/bootstrap.min.css";
 import {FormGroup} from "react-bootstrap";
 import "./SignUp.css";
 import Field from "../../components/Field";
-import Select from "./Select"
+import Select from "./Select";
+// import  { Redirect } from 'react-router-dom';
 class Signup extends Component {
 
   state = {
@@ -26,7 +27,7 @@ class Signup extends Component {
   handle_signup = (event, data) => {
     console.log("ready to send data");
     event.preventDefault();
-    fetch('http://localhost:8000/core/users/', {
+    fetch('http://localhost:8000/signup/charity/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -35,12 +36,18 @@ class Signup extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        localStorage.setItem('token', json.token)
+        this.CheckError(json)
         }
         );
       
   };
-
+  CheckError = (json) => {
+    if(json.Error === ""){
+      console.log("everything is ok");
+      this.props.history.push("/login/");
+    }
+    else console.log(json.Error)
+  }
   changebutt = () => {
     const doesShow = this.state.next;
     this.setState( { next: !doesShow } );
