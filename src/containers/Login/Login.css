@@ -1,0 +1,81 @@
+@font-face {
+  font-family: shabnam;
+  src: url(../../fonts/Shabnam.ttf); }
+
+@font-face {
+  font-family: shabnam_bold;
+  src: url(../../fonts/Shabnam-Bold.ttf); }
+
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+  line-height: 1.7;
+  font-family: shabnam; }
+
+.login-button {
+  margin-top: 3rem; }
+
+.title_login {
+  text-align: right;
+  font-family: shabnam_bold;
+  font-size: 1rem; }
+
+.input_login {
+  text-align: right;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2); }
+
+.ashna-pic {
+  background-image: url(../../assets/charity2-01.png);
+  background-repeat: no-repeat; }
+
+.direct-to-signup {
+  font-size: .85rem;
+  text-align: right;
+  color: gray;
+  position: inline-block; }
+
+.header_12 {
+  font-family: shabnam_bold;
+  font-size: 2rem;
+  top: 15%;
+  left: 50%;
+  position: absolute; }
+
+.background {
+  background-color: #F6F6F6; }
+
+.contain_1 {
+  background-color: white;
+  margin-top: 3rem;
+  width: 35rem;
+  height: 40rem;
+  top: 3rem;
+  right: 5rem;
+  box-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5); }
+
+.top_login {
+  margin-top: 2rem; }
+
+.top_login_1 {
+  margin-top: 1.5rem; }
+
+.picture_login {
+  background-image: url(../../assets/charity2-01.png);
+  background-repeat: no-repeat;
+  height: 25rem;
+  top: 8rem;
+  left: 8rem;
+  position: relative; }
+
+input:focus {
+  background-color: #ddd;
+  outline: none; }
+
+.incorrect_alert {
+  position: relative;
+  float: right;
+  width: 50%;
+  text-align: center;
+  right: 23%;
+  padding: 0;
+  margin: 0; }
