@@ -18,8 +18,9 @@ class Login extends Component {
   handle_login = (e, data) => {
     e.preventDefault();
     console.log("ready to send data")
-    fetch('http://127.0.0.1:8000/login/', {
-      method: 'POST',
+    // fetch('http://127.0.0.1:8000/login/', {
+    fetch('http://172.17.9.221:8650/login/',{
+    method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -32,7 +33,8 @@ class Login extends Component {
       console.log("loged in");
       localStorage.setItem("token", json.Token);
       localStorage.setItem("name",json.Name);
-      this.props.history.push(`my_profile/${json.Name}`);
+      this.props.history.push(`/my_profile/${json.Name}`);
+      // this.props.history.push('/my_profile/posts');
       this.setState({showErrorMessage : false})
       this.setState({Errormessage : ""});
     }
@@ -78,7 +80,7 @@ class Login extends Component {
         
         <div className="top_login_1">
         <hr />
-        <h5 href="" className="direct-to-signup">   <a>اگر حساب کاربری ندارید،ثبت‌نام کنید</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h5 className="direct-to-signup">   <h7>اگر حساب کاربری ندارید،ثبت‌نام کنید</h7>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -109,26 +111,14 @@ class Login extends Component {
         </Button>
         </form>
        
-        
-
-        
       </div>
     )
-
-    
-    
       
     return (
       
-
-      
         <div>
-        
         {LoginForm}
         </div>
-      
-      
-      
       
       );
   }
