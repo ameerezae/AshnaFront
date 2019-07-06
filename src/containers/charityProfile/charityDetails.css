@@ -1,0 +1,23 @@
+.profile_container {
+  background-color: #d1ecf1;
+  width: 70%;
+  position: absolute;
+  height: 100%;
+  left: 7%;
+  margin-top: 1rem;
+  border-radius: 10px;
+  text-align: right;
+  padding-right: 6%;
+  padding-left: 6%;
+  padding-top: 2%; }
+
+.bio {
+  margin-top: 2rem;
+  color: #96aab0;
+  margin-bottom: 5rem; }
+
+.name {
+  color: #586e74; }
+
+.space {
+  margin-left: 1rem; }
