@@ -1,0 +1,26 @@
+.timeLine-content {
+    overflow-wrap: break-word;
+    text-align: justify;
+    padding-left: 1rem;
+    font-size: .8rem;
+}
+.timeline-bg {
+    background-color: lavender;
+    border-radius: 5px;
+    padding: .5rem;
+    margin-top:1rem;
+    margin-left: 1.5rem;
+}
+.center-subject {
+    position: relative;
+    color: black;
+    text-align: center;
+    font-family: shabnam_bold;
+    /* font-size: 1.4rem; */
+    padding-top: 5%;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
