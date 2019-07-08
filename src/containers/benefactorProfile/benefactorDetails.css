@@ -1,0 +1,17 @@
+.navbar-benefactordetaols {
+  float: right;
+  /* background-color: red; */
+  text-align: right;
+  background-color: #1CACBB;
+  height: 100%;
+  padding-bottom: 100%; }
+
+.benefactor-navbar {
+  background-color: #F6B7B7;
+  height: 5rem; }
+
+.Edit-profile-button {
+  top: 25%;
+  left: 5%;
+  position: absolute;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1); }
