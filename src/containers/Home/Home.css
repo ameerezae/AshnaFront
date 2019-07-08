@@ -1,9 +1,45 @@
-@font-face{
-    font-family: shabnam;
-    src: url(../../fonts/Shabnam-Bold.ttf);
+
+#intr-img{
+    width: 400px;
+    height: 400px;
+    right: 8%;
+    top: 30px;
+    left: 50%;
+    position: absolute;
+    display: inline;
 }
 
-.Setfont {
+#intr-title{
+    color: #C2332F;
+    opacity: 1;
+
+}
+
+#intr-text{
+    color: rgb(26, 158, 170);
+    
+    width: 400px;
+    position: absolute;
+    right: 50%;
+    top: 30%;
+    direction: rtl; 
+    text-align: right;   
+}
+body{
+    background-color: #fafafa;
+}
+.Intr-box{
+    width: 80%;
+    height: 500px;
+    left: 10%;
+    top: 20%; 
+    border: 0px solid;
+    border-color: #424667;
+    border-radius: 10px; 
+    position: absolute;
+    direction: rtl;
+}
+.Introduction {
     font-family : shabnam;
     color: red;
     background-color: red;
