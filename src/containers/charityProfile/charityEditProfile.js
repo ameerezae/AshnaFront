@@ -6,32 +6,98 @@ import "./charityEditProfile.css";
 import {Alert} from 'react-bootstrap';
 import {FormGroup} from "react-bootstrap";
 import {InputGroup} from 'react-bootstrap'
-
+const axios = require("axios");
 class CharityEditProfile extends Component {
 
     state = {
         name : "",
         image : "",
-        profile :{
-            ManagingDirector : "",
-            PhoneNumber : "",
-            Email : "",
-            Address : "",
-            Kind : "",
-            FieldOfactivity : "",
-            Bio : ""}
+        ManagingDirector : "",
+        PhoneNumber : "",
+        Email : "",
+        Address : "",
+        Kind : "",
+        FieldOfactivity : "",
+        Bio : "",
+        file : null
+    }
+    onFormSubmit(event,data){
+        console.log("ready to send data");
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append('Name',this.state.name);
+        formData.append('Image',this.state.file);
+        formData.append('ManagingDirector',this.state.ManagingDirector);
+        formData.append('PhoneNumber',this.state.PhoneNumber);
+        formData.append('Address',this.state.Address);
+        formData.append('Bio',this.state.Bio);
+        formData.append('Email',this.state.Email);
+        console.log("ready to send data")
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data',
+                Authorization: `Token ${localStorage.getItem('token')}`
+            }
+        };
+        
+        axios.put('http://127.0.0.1:8000/my_profile/edit/'+localStorage.getItem('name'),formData,config)
+            
+        // fetch('http://127.0.0.1:8000/my_profile/edit/'+localStorage.getItem('name'), {
+        //   method: 'PUT',
+        //   headers: {
+            // 'Content-type': 'application/json',
+            // Authorization: `Token ${localStorage.getItem('token')}`
+        //   },
+        //   body: JSON.stringify(data)
+        // })
+          
+    };
+    componentWillMount() {
+        console.log(localStorage.getItem('name'));
+        
+        fetch("http://127.0.0.1:8000/my_profile/edit/"+localStorage.getItem('name'), {
+          name : "profname",  
+          headers: {
+                Authorization: `Token ${localStorage.getItem('token')}`
+              }
+        })
+          .then(response => response.json())
+           .then(json => this.saveData(json))
+    }
+    saveData = (json) => {
+        this.setState({name:json.Name});
+        this.setState({image:json.Image});
+        this.setState({ManagingDirector:json.ManagingDirector});
+        this.setState({PhoneNumber:json.PhoneNumber});
+        this.setState({Email:json.Email});
+        this.setState({Address:json.Address});
+        this.setState({Kind:json.Kind});
+        this.setState({Bio:json.Bio});
+        this.setState({FieldOfactivity:json.FieldOfactivity});
+        // var profile = {...this.state.profile}
+        // profile.ManagingDirector = json.ManagingDirector;
+        // profile.PhoneNumber = json.PhoneNumber;
+        // profile.Email = json.Email;
+        // profile.Address = json.Address; 
+        // profile.Kind = json.Kind;
+        // profile.Bio = json.Bio;
+        // profile.FieldOfactivity = json.FieldOfactivity
+        // this.setState({profile});
+
     }
     handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         this.setState(prevState => {
           const newState = {...prevState};
-          newState.profile[name] = value;
+          newState[name] = value;
           return newState;
         })
         console.log(this.state)
     }
-
+    SetImage = (event) =>{
+        this.setState({file:event.target.files[0]});
+    }
 
     render() {
 
@@ -41,6 +107,8 @@ class CharityEditProfile extends Component {
                 <Alert variant="info">
                 <Alert.Heading>ویرایش پروفایل</Alert.Heading>
     
+                
+                <form onSubmit = {event=> this.onFormSubmit(event,this.state)}>
                 <p>
                 <FormGroup className="top_login" >
                             <p 
@@ -49,7 +117,7 @@ class CharityEditProfile extends Component {
                             </i></p>
                             <input
                             name = "Bio"
-                            value = {this.state.profile.Bio}
+                            value = {this.state.Bio}
                             onChange = {this.handleChange}
                             className = "input-editProfile"></input>
                 </FormGroup>
@@ -61,7 +129,7 @@ class CharityEditProfile extends Component {
                             </i></p>
                             <input 
                             name = "ManagingDirector"
-                            value = {this.state.profile.ManagingDirector}
+                            value = {this.state.ManagingDirector}
                             onChange = {this.handleChange}
                             className= "input-editProfile" 
                             ></input>
@@ -76,7 +144,7 @@ class CharityEditProfile extends Component {
                             </i></p>
                             <input 
                             name = "PhoneNumber"
-                            value = {this.state.profile.PhoneNumber}
+                            value = {this.state.PhoneNumber}
                             onChange = {this.handleChange}
                             className= "input-editProfile" 
                             ></input>
@@ -89,7 +157,7 @@ class CharityEditProfile extends Component {
                             </i></p>
                             <input 
                             name = "Email"
-                            value = {this.state.profile.Email}
+                            value = {this.state.Email}
                             onChange = {this.handleChange}
                             className= "input-editProfile" 
                             type = "email"></input>
@@ -102,17 +170,30 @@ class CharityEditProfile extends Component {
                             </i></p>
                             <input 
                             name = "Address"
-                            value = {this.state.profile.Address}
+                            value = {this.state.Address}
                             onChange = {this.handleChange}
+                            className= "input-editProfile" 
+                            ></input>
+                </FormGroup>
+                <hr/>
+                <FormGroup className="top_login" >
+                            <p 
+                            className="title_login"><i class="material-icons space">
+                            image
+                            </i></p>
+                            <input 
+                            type="file"
+                            name = "image"
+                            // value = {this.state.Address}
+                            onChange = {this.SetImage}
                             className= "input-editProfile" 
                             ></input>
                 </FormGroup>
                     
                 </p>
-                
                 <hr />
-                <Button variant="success">ویرایش مشخصات</Button>
-                
+                <Button type="submit" variant="success">ویرایش مشخصات</Button>
+                </form>
                 </Alert>
             </div>
         )

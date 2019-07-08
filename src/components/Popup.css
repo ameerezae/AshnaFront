@@ -1,0 +1,57 @@
+.popup {  
+    position: fixed;
+    width: 75%;
+    height: 95%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, .3);
+    color: white;
+    border-radius: 10px;
+  }  
+.popup\_inner {  
+
+    position: absolute;  
+    left: 25%;  
+    right: 25%;  
+    top: 25%;  
+    bottom: 25%;  
+    margin: auto;  
+    border-radius: 20px;  
+    background: white;  
+  }
+
+.pop_text {
+    text-align: right;
+    position: absolute;
+    /* margin-left: 2%; */
+    /* margin-right: 2%; */
+    /* margin-top: 1.5%; */
+    background-color: rgba(0,0,0, .5);;
+    /* height: 2rem; */
+    /* margin-bottom: 1.5%; */
+    /* height: 23rem; */
+    /* width: 90%; */
+    /* height: 50%; */
+    /* position: fixed; */
+    width: 97%;
+    height: 94%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 4px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%
+  }
+  .close_button {
+    position: relative;
+    right: 0%;
+    display: block;
+    left: 95%;
+    margin-bottom: 1rem;
+  }
