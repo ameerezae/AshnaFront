@@ -1,34 +1,21 @@
 import React, {Component} from "react";
 import logo from "../../assets/charity2-01.png";
-import "./charityProfile.css";
+import "./charityPost.css";
 import "../../bootstrap/css/bootstrap.min.css";
 import {Button} from "react-bootstrap";
 import Popup from "../../components/Popup";
-// import defaultpix from"../../assets/outline_account_circle_black_18dp.png";
-// import uploadImage from "../../components/uploadImage";
-
+import "../benefactorProfile/timeLine.css"
 import CreatePostPopup from "../../components/createPostPopup";
+import "../benefactorProfile/followings.css";
 class charityProfile extends Component {
     
     state  = {
-        posts : [
-            {
-                id:1,
-                Subject:"hello",
-                Content:"yahloooliLSDIOJEWFVJEI;OFJVIE;WORHVEFHVISDFVALS;DVNALK/SVNKSKLVNKSL"
-            },
-            {
-                id:2,
-                Subject:"hello",
-                Content:"yahloooli2"
-            },
-            {
-                id:2,
-                Subject:"hello",
-                Content:"yahloooli2"
-            }   
-            
-        ],
+        PopupContent : "",
+        PopupSubject: "",
+        posts : [{
+            Subject:"X",
+            Content:"X"
+        }],
         name : "",
         image : "",
         showPopup : false,
@@ -39,8 +26,9 @@ class charityProfile extends Component {
         }
     }
 
-    togglePopup = () => {  
-
+    togglePopup = (Content,Subject) => {  
+        this.setState({PopupContent:Content})
+        this.setState({PopupSubject:Subject})
         this.setState({  
              showPopup: !this.state.showPopup  
         });  
@@ -84,37 +72,37 @@ class charityProfile extends Component {
       }
     render() {
         let divs = null;
-        if(this.state.showCreatePost == false){
-        divs = (
-            
-            
-             this.state.posts.map(element => 
-             <div className= "col-sm-4">
-                <div className="posts_div">
-                    <div className="posts_title">
-                        {element.Subject}
-                    </div>
-                    <div className = "posts_pix">
-                        <img className = "posts_pix1"src = {element.Image} width = "90" height = " 80"alt= "pic"></img>
-                    </div>
-                    <div className = "posts_content">
-                        {element.Content.slice(0,150)}
-                    </div>
-                    <div>
-                        <Button onClick={this.togglePopup.bind(this)} variant="success" className = "posts_button" size="md">
-                                ادامه
-                        </Button>
-                    </div>
-                    
-                    
-                    
+        if(this.state.showCreatePost == false 
+            && this.state.showPopup == false){
+            divs = (
+                <div>
+                    <section className = "row">
+                        {this.state.posts.map(element => 
+                            <a href = {element.Address} className = "col-sm-3 col-xs-4">
+                                <div className="timeline-bg">
+                                    <figure>
+                                        <div  className="center-subject">{"..."+element.Subject.slice(0,20)}</div>
+                                        {/* <img src = "https://2nate.com/files/organizations/public/a00451ef-4012-4e3b-b021-b3aac258b12c/profile/4e46b111-987f-405f-ae17-c9482264709e-thumb.png" className = "center responsive-images" /> */}
+                                        <img src = {element.Image} className = "center responsive-images" />
+                                        <figcaption>
+                                            <p className="timeLine-content">
+                                                {element.Content.slice(0,150)+"..."}
+                                            </p>
+                                            
+                                            <hr/>
+                                            <Button onClick={this.togglePopup.bind(this,element.Content,element.Subject)}  variant="success" className = "center" size="md">
+                                                    ادامه
+                                            </Button>
+                                        </figcaption>
+    
+                                    </figure>
+                                </div>
+                        </a>)}
+    
+                    </section>
                 </div>
-             </div>
-             
-             
+    
             )
-            
-        )
     }
         const header = (
             <div className = "header_profile">
@@ -145,10 +133,19 @@ class charityProfile extends Component {
         )
             
         
-        
+        const pop = (
+            <div>
+                        {this.state.showPopup ?
+                        <Popup
+                        text = {this.state.PopupContent}
+                        closePopup = {this.togglePopup.bind(this)}
+                        Subject = {this.state.PopupSubject} />
+                        :null}
+                    </div>
+        )
         const pannel = (
             <div className="container_pannel">
-                <img src={logo} className="pix_charityProfile" alt = "logo" width="150" height="150" />
+                <img src={logo} className="pix_charityProfile responsive-images" alt = "logo" width="150" height="150" />
                 <Button variant="primary" className= "button_pannel" size="lg" block>
                     خانه
                 </Button>
@@ -158,7 +155,7 @@ class charityProfile extends Component {
                 <Button variant="primary" className= "button_pannel" size="lg" block>
                     دنبال کنندگان
                 </Button>
-                <Button href = "/my_profile/posts" variant="primary" className= "button_pannel" size="lg" block>
+                <Button href = "/profile/charity/posts" variant="primary" className= "button_pannel" size="lg" block>
                     نوشته ها
                 </Button>
                 <Button variant="primary" className= "button_pannel" size="lg" block>
@@ -167,7 +164,7 @@ class charityProfile extends Component {
                 <Button variant="primary" className= "button_pannel" size="lg" block>
                     اطلاعات خیریه
                 </Button>
-                <Button href={"/my_profile/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
+                <Button href={"/profile/charity/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
                     پروفایل
                 </Button>
               
@@ -180,9 +177,8 @@ class charityProfile extends Component {
             <div>
                 {header}
                 {pannel}
-                <div className="row">
                 {divs}
-                </div>
+                {pop}
             </div>        
             );
 
