@@ -3,6 +3,7 @@
     text-align: justify;
     padding-left: 1rem;
     font-size: .8rem;
+    direction: rtl;
 }
 .timeline-bg {
     background-color: lavender;
