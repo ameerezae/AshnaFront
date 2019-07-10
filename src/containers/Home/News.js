@@ -19,6 +19,11 @@ class News extends Component {
          </div>   
         </div>
         <div className="Seprator">
+        <hr id="hr1"></hr>
+        <div  id="septext">
+          آخرین خیریه ها
+        </div>
+        <hr id="hr2"></hr>
 
       </div>
       </div>
