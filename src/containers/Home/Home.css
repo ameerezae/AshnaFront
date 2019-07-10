@@ -18,26 +18,20 @@
 
 #intr-text{
     color: rgb(26, 158, 170);
-    
-    width: 400px;
-    position: absolute;
-    right: 50%;
-    top: 30%;
-    direction: rtl; 
-    text-align: right;   
+    /* width: 400px; */
+    /* position: absolute; */
+    /* right: 50%; */
+    /* top: 30%; */
+    direction: rtl;
+    text-align: right;
+    padding-top: 8rem;
+    padding-right: 12rem;  
 }
 body{
     background-color: #fafafa;
 }
 .Intr-box{
-    width: 80%;
-    height: 500px;
-    left: 10%;
-    top: 20%; 
-    border: 0px solid;
-    border-color: #424667;
-    border-radius: 10px; 
-    position: absolute;
+    
     direction: rtl;
 }
 .Introduction {
@@ -45,3 +39,50 @@ body{
     color: red;
     background-color: red;
 }
+
+.responsive-images-2 {
+    width: 100%;
+    max-width: 400px;
+    height: auto; }
+
+.home-picture {
+    left:10%;
+    margin-left:10rem;
+}
+.center-title {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title-center {
+    color: #8B3300;
+    margin-top:2rem;
+  }
+
+  .home-text-center {
+      color : grey;
+      text-align: center;
+  }
+  .sta-text {
+    color: #01802B;
+    text-align: center;
+    direction: rtl;
+  }
+  .sta-text-2{
+    color: #0B0F30;
+    text-align: center;
+    direction: rtl;
+  }
+
+  .statis-box {
+      background-color: rgb(105, 214, 181);
+      border-radius: 10px;
+      padding-top: 4rem;
+      padding-bottom: 1rem;
+  }
+  .footer-image {
+      margin-left: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+  }

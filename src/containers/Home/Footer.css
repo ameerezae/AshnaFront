@@ -1,9 +1,10 @@
 .Footer{
-    position: absolute;
-    top: 250%;
+    /* position: absolute;
+    top: 250%; */
     width: 100%;
-    height: 90px;
+    /* height: 90px; */
     background-color: #60A8B4;
+    margin-top: 6rem;
 }
 .footer-img{
     direction: rtl;
