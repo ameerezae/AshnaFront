@@ -1,0 +1,27 @@
+
+$pannel_color:#1CACBB;
+.navbar-benefactordetaols{
+    float : right;
+    // float: right;
+    /* background-color: red; */
+    text-align: right;
+    // width: 20%;
+    background-color: $pannel_color;
+    height: 100%;
+    padding-bottom:  100%;
+}
+
+.benefactor-navbar{
+    // display: inline-flex;
+    // display: inline-block;
+    // width: 85.001%;
+    background-color: #F6B7B7;
+    height: 5rem;
+}
+
+.Edit-profile-button {
+    top:25%;
+    left:5%;
+    position: absolute;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}

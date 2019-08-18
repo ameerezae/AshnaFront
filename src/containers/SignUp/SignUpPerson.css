@@ -1,0 +1,11 @@
+.button-person{
+    
+        cursor: pointer;
+        padding: .3rem;
+        color: #F5F5F5;
+        border-radius: 5px;
+        background-color: #50D282;
+        width: 100%;
+        border: none; 
+        margin-top:1rem;
+}

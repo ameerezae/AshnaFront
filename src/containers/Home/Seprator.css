@@ -1,0 +1,47 @@
+#septext{
+    color: #8B3300;
+}
+.Seprator{
+    /* background-color: ; */
+    width: 50%;
+    height: 35px;
+    display: block;
+    position: absolute;
+    left: 25%;
+    top: 90%;
+    direction: rtl;
+    text-align: center;
+}
+
+
+.Seprator-2{
+    /* background-color: ; */
+    width: 50%;
+    height: 35px;
+    display: block;
+    position: absolute;
+    left: 25%;
+    top: 190%;
+    direction: rtl;
+    text-align: center;
+}
+#hr1{
+    width: 30%;
+    position:absolute;
+    left: 0%;
+    top: 10%;
+    color: #707070;
+    opacity: 0.5;
+    border: thin solid;
+}
+
+#hr2{
+    width: 30%;
+    position:absolute;
+    right: 0%;
+    top: 10%;
+    color: #707070;
+    opacity: 0.5;
+    border: thin solid;
+}
+

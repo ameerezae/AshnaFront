@@ -1,0 +1,25 @@
+
+.profile_containerEdit {
+    /* background-color: #e8f0f5; */
+    width: 70%;
+    /* position: absolute; */
+    /* height: 100%; */
+    /* left: 7%; */
+    /* margin-top: 1rem; */
+    border-radius: 10px;
+    text-align: right;
+    /* top: 0; */
+    /* padding-right: 6%; */
+    padding-left: 6%;
+    padding-top: 2%;
+    margin-left : 5%;
+
+}
+
+.input-editProfile{
+    text-align: right;
+
+}
+.input-editProfile:focus {
+    background-color: lightblue;
+}

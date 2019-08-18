@@ -1,0 +1,57 @@
+@font-face {
+  font-family: shabnam_bold;
+  src: url(../../fonts/Shabnam-Bold.ttf); }
+
+#News-Box{
+    background-color: #86E8CB;
+    width: 80%;
+    height: 50px;
+    color: #101749;
+    position: absolute;
+    top: 168%;
+    left: 10%;
+    direction: rtl;
+    text-align: right;
+    border-radius: 5px;
+}
+
+#Sentence{
+    display: inline-block;
+    position: absolute;
+    right: 2%;
+    top: 25%;
+    
+}
+
+#email{
+    left: 30%;
+    width: 300px;
+    border: 1px solid;
+    border-color: #c0c0c0;
+    border-radius: 5px;
+    height: 33px;
+    background-color: #ffffff;
+    left: 0px;
+}
+
+#style{
+    color: #ff6f33;
+    
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #c0c0c0;
+    background-color: #ffffff;
+    left: 0px;
+}
+
+.mb-3{
+    position: absolute;
+    width: 30%;
+    top: 100%;
+}
+#b{
+    top: 20px;
+    left: 20%;
+    display: inline-block;
+    position: absolute;
+}
