@@ -8,19 +8,23 @@ import { doWhileStatement } from '@babel/types';
 import Statistics from './Statistics';
 import {Navbar,Button,Form,NavDropdown,Nav,FormControl,Dropdown} from 'react-bootstrap';
 import Commite from "../../assets/commite.png";
+
 import Sepas from "../../assets/sepas.png"; 
 import Otism from "../../assets/otism.png";
 import safir from "../../assets/safir.jpeg";
+
 import insta_img from '../../assets/insta-logo.png';
 import twitter_img from '../../assets/twitter-logo.png';
 import facebook_img from '../../assets/facebook-logo.png';
 class Introduction extends Component {
   state = {
     name : "",
+
     islogin : false,
     charities : [
       {
         name : "کمیته امداد امام خمینی(ره)",
+
         pic : Commite
       },
       {
@@ -34,10 +38,12 @@ class Introduction extends Component {
       {
         name : "سفیر مهربانی",
         pic : safir
+
       }
 
     ]
   }
+
   componentWillMount() {
     console.log(localStorage.getItem('name'));
     if(localStorage.length != 0){
@@ -79,6 +85,7 @@ CharityView = (event,name) => {
     
   else{
     homeNavbar = (
+
       <div>
                <Navbar bg="light" expand="md" >
                    <Navbar.Brand>آشنا</Navbar.Brand>
@@ -98,6 +105,7 @@ CharityView = (event,name) => {
 
   }
     
+
     return (
       <div>
         {homeNavbar}
@@ -138,6 +146,7 @@ CharityView = (event,name) => {
                 <hr/>
                 <div className="search-text">
                 <span className = "home-text-center center"><a href={"/charities/"+element.name} onClick={event => this.CharityView(event,element.name)}>{element.name}</a></span>
+
                 </div>
                 <hr/>  
             </figcaption>

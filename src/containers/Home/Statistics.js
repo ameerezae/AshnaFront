@@ -22,4 +22,5 @@ class Statistics extends Component {
     );
   }
 }
+
 export default Statistics;
