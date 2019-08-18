@@ -18,6 +18,7 @@ class CharityDetails extends Component {
             FieldOfactivity : "",
             Bio : ""}
     }
+    
     componentWillMount() {
         console.log(localStorage.getItem('name'));
         
@@ -44,12 +45,15 @@ class CharityDetails extends Component {
         this.setState({profile});
 
     }
+    handle_logout = (event) => {
+        localStorage.clear();
+    }
     render() {
 
         const profile = (
             <div className = "profile_container">
                 <h4 className="name">{this.state.name}</h4>
-                <p className = "bio">{this.state.profile.Bio}</p>
+                <p className = "bio">{this.state.profile.Bio.slice(0,720)}</p>
                 <Alert variant="dark">
                 {/* <Alert.Heading>Hey, nice to see you</Alert.Heading> */}
                 <p>
@@ -92,34 +96,27 @@ class CharityDetails extends Component {
                 <div className = "username_header">
                     <a>{this.state.name}</a>
                 </div>
-                <a href = "/edit/"><Button className = "createPostButton"  variant="light">ویرایش مشخصات</Button></a>
+                <a href = {`/profile/charity/edit/${this.state.name}`} ><Button className = "createPostButton"  variant="light">ویرایش مشخصات</Button></a>
             </div>
         )
         const pannel = (
             <div className="container_pannel">
                 <img src={logo} className="pix_charityProfile" alt = "logo" width="150" height="150" />
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    خانه
+                <Button href={"/ashna"} variant="primary" className= "button_pannel" size="lg" block>
+                    آشنا
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    حمایت ها
-                </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
+                <Button href="/profile/charity/followers" variant="primary" className= "button_pannel" size="lg" block>
                     دنبال کنندگان
                 </Button>
-                <Button href = "/my_profile/posts" variant="primary" className= "button_pannel" size="lg" block>
+                <Button href = "/profile/charity/posts" variant="primary" className= "button_pannel" size="lg" block>
                     نوشته ها
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                     نظرات
-                </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    اطلاعات خیریه
-                </Button>
-                <Button href={"/my_profile/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
+                <Button href={"/profile/charity/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
                 پروفایل               
                 </Button>
-                
+                <Button href="/login" onClick = {event => this.handle_logout(event)} variant="primary" className= "button_pannel" size="lg" block>
+                خروج               
+                </Button>
               
                 
             </div>

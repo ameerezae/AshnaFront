@@ -144,8 +144,8 @@ class CharityDetails extends Component {
         const pannel = (
             <div className="container_pannel">
                 <img src={logo} className="pix_charityProfile" alt = "logo" width="150" height="150" />
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    خانه
+                <Button href={"/ashna"} variant="primary" className= "button_pannel" size="lg" block>
+                    آشنا
                 </Button>
                 <Button variant="primary" className= "button_pannel" size="lg" block>
                     دنبال کنندگان

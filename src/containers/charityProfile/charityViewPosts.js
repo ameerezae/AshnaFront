@@ -5,6 +5,7 @@ import "../../bootstrap/css/bootstrap.min.css";
 import {Button} from "react-bootstrap";
 import Popup from "../../components/Popup";
 import "../benefactorProfile/timeLine.css";
+import defaultimg from '../../components/charityDefaultImg.jpg';
 // import defaultpix from"../../assets/outline_account_circle_black_18dp.png";
 // import uploadImage from "../../components/uploadImage";
 
@@ -14,6 +15,7 @@ class charityProfile extends Component {
     state  = {
         IsFollowed : null,
         PopupContent : "",
+        PopupSubject : "",
         posts : [],
         name : "",
         image : "",
@@ -25,8 +27,9 @@ class charityProfile extends Component {
         }
     }
 
-    togglePopup = (Content) => {  
-        this.setState({PopupContent:Content})
+    togglePopup = (Content , Subject) => {  
+        this.setState({PopupContent:Content});
+        this.setState({PopupSubject:Subject});
         this.setState({  
              showPopup: !this.state.showPopup  
         });  
@@ -67,6 +70,7 @@ class charityProfile extends Component {
         this.setState({IsFollowed:json.IsFollowed});
         this.setState({name: json.Name});
         this.setState({image : json.Image});
+        console.log(this.state.image);
       }
     FollowOnclick = (event,name) =>{
         console.log("ready to send data")
@@ -104,53 +108,6 @@ class charityProfile extends Component {
         }
     }
     render() {
-        let divs = null;
-        if(this.state.showPopup == false){
-        divs = (
-            <div>
-                <section className = "row">
-                    {this.state.posts.map(element => 
-                        <a href = {element.Address} className = "col-sm-3 col-xs-4">
-                            <div className="timeline-bg">
-                                <figure>
-                                    <div  className="center-subject">{"..."+element.Subject.slice(0,20)}</div>
-                                    {/* <img src = "https://2nate.com/files/organizations/public/a00451ef-4012-4e3b-b021-b3aac258b12c/profile/4e46b111-987f-405f-ae17-c9482264709e-thumb.png" className = "center responsive-images" /> */}
-                                    <img src = {element.Image} className = "center responsive-images" />
-                                    <figcaption>
-                                        <p className="timeLine-content">
-                                            {element.Content.slice(0,150)+"..."}
-                                        </p>
-                                        
-                                        <hr/>
-                                        <Button onClick={this.togglePopup.bind(this,element.Content)}  variant="success" className = "center" size="md">
-                                                ادامه
-                                        </Button>
-                                    </figcaption>
-
-                                </figure>
-                            </div>
-                    </a>)}
-
-                </section>
-            </div>
-
-             
-             
-            
-            
-        )
-     
-        
-    }
-    const pop = (
-        <div>
-                    {this.state.showPopup ?
-                    <Popup
-                    text = {this.state.PopupContent}
-                    closePopup = {this.togglePopup.bind(this)} />
-                    :null}
-                </div>
-    )
         let followButt = null;
         if(!this.state.IsFollowed){
             followButt = <Button onClick = {event => this.FollowOnclick(event ,this.state.name)} className = "createPostButton"  variant="light">دنبال میکنم</Button>
@@ -169,7 +126,7 @@ class charityProfile extends Component {
                 {followButt}
                 <div>
 
-                    {this.state.showCreatePost ?
+                    {/* {this.state.showCreatePost ?
                     <div>
                     <CreatePostPopup
                     Subject = "Subject"
@@ -180,7 +137,7 @@ class charityProfile extends Component {
                     closePopup = {this.toggleShowCreatePost.bind(this)} />
                     
                     </div>
-                    :null}
+                    :null} */}
                     
                 </div>
             </div>
@@ -191,8 +148,8 @@ class charityProfile extends Component {
         const pannel = (
             <div className="container_pannel">
                 <img src={logo} className="pix_charityProfile" alt = "logo" width="150" height="150" />
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    خانه
+                <Button href={"/ashna"} variant="primary" className= "button_pannel" size="lg" block>
+                    آشنا
                 </Button>
                 <Button variant="primary" className= "button_pannel" size="lg" block>
                     دنبال کنندگان
@@ -207,6 +164,59 @@ class charityProfile extends Component {
                 
             </div>
         );
+        let divs = null;
+        if(this.state.showPopup == false){
+        divs = (
+            <div>
+                <section className = "row">
+                    {this.state.posts.map(element => 
+                        <a className = "col-sm-3 col-xs-4">
+                            <div className="timeline-bg">
+                                <figure>
+                                    <div  className="center-subject">{"..."+element.Subject.slice(0,30)}</div>
+                                    {element.Image == "http://127.0.0.1:8000/media/null" ?
+                                    <img src = {defaultimg} className = "center responsive-images" width="150" height="150" />
+                                     : <img alt="ax" src={element.Image} className="center responsive-images" width="150" height="150"/>
+                                    }
+                                    <br/>
+                                    <figcaption>
+                                        <p className="timeLine-content">
+                                            {element.Content.slice(0,50)+"..."}
+                                        </p>
+                                        <hr/>
+                                        <div className="search-text">
+                                        </div>
+                                    
+                                        <Button onClick={this.togglePopup.bind(this,element.Content,element.Subject)}  variant="success" className = "center" size="md">
+                                                ادامه
+                                        </Button>
+                                    </figcaption>
+
+                                </figure>
+                            </div>
+                    </a>)}
+
+                </section>
+            </div>
+             
+             
+            
+            
+        )
+     
+        
+    }
+    const pop = (
+        <div>
+                    {this.state.showPopup ?
+                    <Popup
+                    Subject = {this.state.PopupSubject}
+                    text = {this.state.PopupContent}
+                    closePopup = {this.togglePopup.bind(this)} />
+                    :null}
+                </div>
+    )
+        
 
         return (
             

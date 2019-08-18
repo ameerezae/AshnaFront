@@ -12,10 +12,7 @@ class charityProfile extends Component {
     state  = {
         PopupContent : "",
         PopupSubject: "",
-        posts : [{
-            Subject:"X",
-            Content:"X"
-        }],
+        posts : [],
         name : "",
         image : "",
         showPopup : false,
@@ -70,6 +67,9 @@ class charityProfile extends Component {
         this.setState({name: json.Name});
         this.setState({image : json.Image});
       }
+    handle_logout = (event) => {
+        localStorage.clear();
+    }
     render() {
         let divs = null;
         if(this.state.showCreatePost == false 
@@ -146,26 +146,21 @@ class charityProfile extends Component {
         const pannel = (
             <div className="container_pannel">
                 <img src={logo} className="pix_charityProfile responsive-images" alt = "logo" width="150" height="150" />
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    خانه
+                <Button href={"/ashna"} variant="primary" className= "button_pannel" size="lg" block>
+                    آشنا
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    حمایت ها
-                </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
+                
+                <Button href = "/profile/charity/followers" variant="primary" className= "button_pannel" size="lg" block>
                     دنبال کنندگان
                 </Button>
                 <Button href = "/profile/charity/posts" variant="primary" className= "button_pannel" size="lg" block>
                     نوشته ها
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                     نظرات
-                </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    اطلاعات خیریه
-                </Button>
                 <Button href={"/profile/charity/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
                     پروفایل
+                </Button>
+                <Button href="/login" onClick = {event => this.handle_logout(event)} variant="primary" className= "button_pannel" size="lg" block>
+                خروج               
                 </Button>
               
                 

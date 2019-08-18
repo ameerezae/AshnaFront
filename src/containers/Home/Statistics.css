@@ -1,0 +1,66 @@
+.Statistics{
+    width: 60%;
+    height: 350px;
+    background-color: rgb(105, 214, 181);
+    opacity: 0.83;
+    position: absolute;
+    right: 20%;
+    top: 199%;
+    border-radius: 15px;
+}
+
+#intr-img2{
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    right: 38%;
+    top: 194%;
+
+}
+
+.Sta-text{
+    color: #01802B;
+    opacity: 1;
+    display: inline;
+    position: absolute;
+    
+    top: 35%;
+}
+
+.Sta-text2{
+    color: #0B0F30;
+    opacity: 1;
+    display: inline;
+    position: absolute;
+    top: 52%;
+}
+
+#t1{
+    position: absolute;
+    right: 15%;
+}
+
+#t2{
+    position: absolute;
+    right: 47%;
+}
+
+#t3{
+    position: absolute;
+    right: 75%;
+}
+
+#b1{
+    position: absolute;
+    right: 5%;
+}
+
+#b2{
+    position: absolute;
+    right: 41%;
+}
+
+#b3{
+    position: absolute;
+    right: 74%;
+}

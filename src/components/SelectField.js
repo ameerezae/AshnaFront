@@ -7,23 +7,23 @@ const Choices = [
         label : "",
     },
     {
-      value: 'education',
+      value: 'Education',
       label: 'آموزش و پژوهش',
     },
     {
-      value: 'treatment',
+      value: 'Healthcare',
       label: 'بهداشت و درمان',
     },
     {
-      value: 'care',
+      value: 'Maintenance and cares',
       label: 'نگهداری و سرپرستی',
     },
     {
-      value: 'structure',
+      value: 'Structure',
       label: 'تجهیز و عمران',
     },
     {
-      value: 'environment',
+      value: 'Environment',
       label: 'محیط زیست و منابع طبیعی',
     },
     
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
   },
   menu: {
-    width: 100,
+    width: 300,
   },
 }));
 
