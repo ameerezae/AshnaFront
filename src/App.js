@@ -15,7 +15,7 @@ import TimeLine from './containers/benefactorProfile/timeLine';
 import Followings from './containers/benefactorProfile/followings';
 import CharityViewDetail from './containers/charityProfile/charityViewDetail';
 import CharityViewPosts from './containers/charityProfile/charityViewPosts';
-import Followers from './containers/charityProfile/followers';
+import Followers from './containers/charityProfile/Followers';
 class App extends Component {
 
   render() {
