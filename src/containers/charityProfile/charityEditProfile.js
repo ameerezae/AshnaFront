@@ -5,7 +5,8 @@ import "./charityDetails.css";
 import "./charityEditProfile.css";
 import {Alert} from 'react-bootstrap';
 import {FormGroup} from "react-bootstrap";
-import {InputGroup} from 'react-bootstrap'
+import {InputGroup} from 'react-bootstrap';
+
 const axios = require("axios");
 class CharityEditProfile extends Component {
 
@@ -40,16 +41,8 @@ class CharityEditProfile extends Component {
             }
         };
         
-        axios.put('http://127.0.0.1:8000/my_profile/edit/'+localStorage.getItem('name'),formData,config)
-            
-        // fetch('http://127.0.0.1:8000/my_profile/edit/'+localStorage.getItem('name'), {
-        //   method: 'PUT',
-        //   headers: {
-            // 'Content-type': 'application/json',
-            // Authorization: `Token ${localStorage.getItem('token')}`
-        //   },
-        //   body: JSON.stringify(data)
-        // })
+        axios.put('http://127.0.0.1:8000/my_profile/edit/'+localStorage.getItem('name'),formData,config);
+        this.props.history.push(`/profile/charity/${this.state.name}`);
           
     };
     componentWillMount() {
@@ -74,15 +67,6 @@ class CharityEditProfile extends Component {
         this.setState({Kind:json.Kind});
         this.setState({Bio:json.Bio});
         this.setState({FieldOfactivity:json.FieldOfactivity});
-        // var profile = {...this.state.profile}
-        // profile.ManagingDirector = json.ManagingDirector;
-        // profile.PhoneNumber = json.PhoneNumber;
-        // profile.Email = json.Email;
-        // profile.Address = json.Address; 
-        // profile.Kind = json.Kind;
-        // profile.Bio = json.Bio;
-        // profile.FieldOfactivity = json.FieldOfactivity
-        // this.setState({profile});
 
     }
     handleChange = (event) => {
@@ -97,8 +81,11 @@ class CharityEditProfile extends Component {
     }
     SetImage = (event) =>{
         this.setState({file:event.target.files[0]});
+        console.log(this.state.file)
     }
-
+    handle_logout = (event) => {
+        localStorage.clear();
+    }
     render() {
 
         const profile = (
@@ -212,29 +199,20 @@ class CharityEditProfile extends Component {
         const pannel = (
             <div className="container_pannel">
                 <img src={logo} className="pix_charityProfile" alt = "logo" width="150" height="150" />
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    خانه
+                <Button href={"/ashna"} variant="primary" className= "button_pannel" size="lg" block>
+                    آشنا
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    حمایت ها
-                </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
+                <Button href={"/profile/charity/followers"} variant="primary" className= "button_pannel" size="lg" block>
                     دنبال کنندگان
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
+                <Button href = "/profile/charity/posts" variant="primary" className= "button_pannel" size="lg" block>
                     نوشته ها
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                     نظرات
+                <Button href={"/profile/charity/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
+                پروفایل               
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    اطلاعات خیریه
-                </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    پشتیبانی
-                </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
-                    پشتیبانی
+                <Button href="/login" onClick = {event => this.handle_logout(event)} variant="primary" className= "button_pannel" size="lg" block>
+                خروج               
                 </Button>
               
                 

@@ -33,6 +33,9 @@ class BenefactorDetails extends Component {
         this.setState({profile});
 
     }
+    handle_logout = (event) => {
+        localStorage.clear();
+    }
     render () {
         const profile = (
             <div className = "profile_container">
@@ -79,16 +82,21 @@ class BenefactorDetails extends Component {
         const pannel = (
             <div className="container_pannel">
                 <img src={logo} className="pix_charityProfile" alt = "logo" width="150" height="150" />
-                <Button variant="primary" className= "button_pannel" size="lg" block>
+                <Button href={"/ashna"} variant="primary" className= "button_pannel" size="lg" block>
+                    آشنا
+                </Button>
+                <Button href={"/profile/person/timeline"} variant="primary" className= "button_pannel" size="lg" block>
                     خانه
                 </Button>
-                <Button variant="primary" className= "button_pannel" size="lg" block>
+                <Button href={"/profile/person/followings"} variant="primary" className= "button_pannel" size="lg" block>
                     دنبال شدگان
                 </Button>
                 <Button href={"/profile/person/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
                 پروفایل               
                 </Button>
-
+                <Button href="/login" onClick = {event => this.handle_logout(event)} variant="primary" className= "button_pannel" size="lg" block>
+                خروج               
+                </Button>
                 
               
                 

@@ -4,7 +4,7 @@ import {FormGroup} from "react-bootstrap";
 import "./SignUp.css";
 import Field from "../../components/Field";
 import Select from "./Select";
-import "./SignUpPerson.css";
+// import  { Redirect } from 'react-router-dom';
 class Signup extends Component {
 
   state = {
@@ -118,7 +118,7 @@ class Signup extends Component {
 
    
       
-  butt = (<button className="button-person" onClick={event => this.handle_signup(event,this.state.data)}>ثبت مرکز
+  butt = (<button className="button_1" onClick={event => this.handle_signup(event,this.state.data)}>ثیت مرکز
       </button>)
       
   SignUpForm = (<div>
@@ -134,7 +134,7 @@ class Signup extends Component {
         click = {this.handleChange}
         value = {this.state.data.Name}
         type = "text"
-        placeholder = "نام خود را وارد نمایید"
+        placeholder = "نام کربر را وارد نمایید"
         name = "Name"
         ></Field>
 
@@ -143,7 +143,7 @@ class Signup extends Component {
         click = {this.handleChange}
         value = {this.state.data.Email}
         type = "email"
-        placeholder = "ایمیل خود را وارد نمایید"
+        placeholder = "ایمیل کاربر را وارد نمایید"
         name = "Email"
         ></Field>
 
@@ -152,7 +152,7 @@ class Signup extends Component {
         click = {this.handleChange}
         value = {this.state.data.PhoneNumber}
         type = "text"
-        placeholder = "شماره تلفن خود را وارد نمایید"
+        placeholder = "شماره تلفن کاربر را وارد نمایید"
         name = "PhoneNumber"
         ></Field>
 

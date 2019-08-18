@@ -8,18 +8,23 @@ import { doWhileStatement } from '@babel/types';
 import Statistics from './Statistics';
 import {Navbar,Button,Form,NavDropdown,Nav,FormControl,Dropdown} from 'react-bootstrap';
 import Commite from "../../assets/commite.png";
-import Sepas from "../../assets/sepas.png";
+
+import Sepas from "../../assets/sepas.png"; 
 import Otism from "../../assets/otism.png";
-import KarAfarini from "../../assets/karafarini.png";
+import safir from "../../assets/safir.jpeg";
+
 import insta_img from '../../assets/insta-logo.png';
 import twitter_img from '../../assets/twitter-logo.png';
 import facebook_img from '../../assets/facebook-logo.png';
 class Introduction extends Component {
   state = {
     name : "",
+
+    islogin : false,
     charities : [
       {
-        name : "کمیته امداد امام خمینی",
+        name : "کمیته امداد امام خمینی(ره)",
+
         pic : Commite
       },
       {
@@ -31,43 +36,64 @@ class Introduction extends Component {
         pic : Sepas
       },
       {
-        name : "کانون کارافرینی ایران",
-        pic : KarAfarini
+        name : "سفیر مهربانی",
+        pic : safir
+
       }
 
     ]
   }
+
+  componentWillMount() {
+    console.log(localStorage.getItem('name'));
+    if(localStorage.length != 0){
+      this.setState({islogin:true});
+      this.setState({name : localStorage.getItem('name')});
+    }
+  }
+  handle_logout = (event) => {
+    localStorage.clear();
+}
+CharityView = (event,name) => {
+  localStorage.setItem('CharityName',name);
+}
   render() {
-  //   const homeNavbar = (
-  //     <div>
-  //         <Navbar bg="light" expand="md" >
-  //             <Navbar.Brand>آشنا</Navbar.Brand>
-  //             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  //             <Navbar.Collapse id="basic-navbar-nav ">
-  //                 <Nav className="mr-auto">
-  //                 <Nav.Link className="nav-text-color" href="/login">ورود</Nav.Link>
-  //                 <NavDropdown title="ثبت نام" id="basic-nav-dropdown">
-  //                     <NavDropdown.Item href="/signup/charity">ثبت خیریه</NavDropdown.Item>
-  //                     <NavDropdown.Divider />
-  //                     <NavDropdown.Item href="/signup/person">ثبت نیکوکار</NavDropdown.Item>
-  //                 </NavDropdown>
-  //                 </Nav>
-  //                 <Form inline>
-  //                 <Button href="/charities" variant="outline-success">سازمان ها</Button>
-  //                 </Form>
-  //             </Navbar.Collapse>
-  //         </Navbar>
-  //     </div>
-  // );
-    const homeNavbar = (
+  let homeNavbar = null
+  if(this.state.islogin == false){
+     homeNavbar = (
+      <div>
+          <Navbar bg="light" expand="md" >
+              <Navbar.Brand>آشنا</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav ">
+                  <Nav className="mr-auto">
+                  <Nav.Link className="nav-text-color" href="/login">ورود</Nav.Link>
+                  <NavDropdown title="ثبت نام" id="basic-nav-dropdown">
+                      <NavDropdown.Item href="/signup/charity">ثبت خیریه</NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item href="/signup/person">ثبت نیکوکار</NavDropdown.Item>
+                  </NavDropdown>
+                  </Nav>
+                  <Form inline>
+                  <Button href="/charities" variant="outline-success">سازمان ها</Button>
+                  </Form>
+              </Navbar.Collapse>
+          </Navbar>
+      </div>
+  );
+  }
+    
+  else{
+    homeNavbar = (
+
       <div>
                <Navbar bg="light" expand="md" >
                    <Navbar.Brand>آشنا</Navbar.Brand>
                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
                    <Navbar.Collapse id="basic-navbar-nav ">
                        <Nav className="mr-auto">
-                       <Nav.Link className="nav-text-color" >میریزدان سیدی</Nav.Link>
-                       <Nav.Link className = "nav-text-color">خروج</Nav.Link>
+                       <Nav.Link href= {"/profile/person/"+this.state.name} className="nav-text-color" >{this.state.name}</Nav.Link>
+                       <Nav.Link href= "/login" onClick={event => this.handle_logout(event)}  className = "nav-text-color">خروج</Nav.Link>
                        </Nav>
                        <Form inline>
                        <Button href="/charities" variant="outline-success">سازمان ها</Button>
@@ -76,6 +102,9 @@ class Introduction extends Component {
                </Navbar>
            </div>
     );
+
+  }
+    
 
     return (
       <div>
@@ -116,7 +145,8 @@ class Introduction extends Component {
             <figcaption>
                 <hr/>
                 <div className="search-text">
-                <span className = "home-text-center center">{element.name}</span>
+                <span className = "home-text-center center"><a href={"/charities/"+element.name} onClick={event => this.CharityView(event,element.name)}>{element.name}</a></span>
+
                 </div>
                 <hr/>  
             </figcaption>

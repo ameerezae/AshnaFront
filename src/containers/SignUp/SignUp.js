@@ -26,6 +26,7 @@ class Signup extends Component {
 
   handle_signup = (event, data) => {
     console.log("ready to send data");
+    console.log(data);
     event.preventDefault();
     fetch('http://localhost:8000/signup/charity/', {
       method: 'POST',

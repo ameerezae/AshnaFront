@@ -18,8 +18,7 @@ class Login extends Component {
   handle_login = (e, data) => {
     e.preventDefault();
     console.log("ready to send data")
-    // fetch('http://127.0.0.1:8000/login/', {
-    fetch('http://172.17.9.221:8650/login/',{
+    fetch('http://127.0.0.1:8000/login/', {
     method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +32,15 @@ class Login extends Component {
       console.log("loged in");
       localStorage.setItem("token", json.Token);
       localStorage.setItem("name",json.Name);
-      this.props.history.push(`/my_profile/${json.Name}`);
+      if (json.status === "Charity"){
+          this.props.history.push(`/profile/charity/${json.Name}`)
+      }
+      else{
+          console.log("kirrrrrrrrr")
+          this.props.history.push(`/profile/person/${json.Name}`)
+      }
+
+      //this.props.history.push(`/profile/${json.Name}`);
       // this.props.history.push('/my_profile/posts');
       this.setState({showErrorMessage : false})
       this.setState({Errormessage : ""});

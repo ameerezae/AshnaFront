@@ -42,6 +42,12 @@ class TimeLine extends Component {
         this.setState({name: json.Name});
         this.setState({image : json.Image});
       }
+    CharityView = (event,name) => {
+        localStorage.setItem('CharityName',name);
+    }
+    handle_logout = (event) => {
+        localStorage.clear();
+    }
     render(){
         const header = (
             <div className = "header_profile">
@@ -57,6 +63,9 @@ class TimeLine extends Component {
         const pannel = (
             <div className="container_pannel">
                 <img src={logo} className="pix_charityProfile responsive-images" alt = "logo" width="150" height="150" />
+                <Button href={"/ashna"} variant="primary" className= "button_pannel" size="lg" block>
+                    آشنا
+                </Button>
                 <Button href={"/profile/person/timeline"} variant="primary" className= "button_pannel" size="lg" block>
                     خانه
                 </Button>
@@ -65,6 +74,9 @@ class TimeLine extends Component {
                 </Button>
                 <Button href={"/profile/person/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
                 پروفایل               
+                </Button>
+                <Button href="/login" onClick = {event => this.handle_logout(event)} variant="primary" className= "button_pannel" size="lg" block>
+                خروج               
                 </Button>
             </div>
         )
@@ -76,11 +88,10 @@ class TimeLine extends Component {
             <div>
                 <section className = "row">
                     {this.state.timeLine.map(element => 
-                        <a href = {element.Address} className = "col-sm-3 col-xs-4">
+                        <a  className = "col-sm-3 col-xs-4">
                             <div className="timeline-bg">
                                 <figure>
                                     <div  className="center-subject">{"..."+element.Subject.slice(0,30)}</div>
-                                    {/* <img src = "https://2nate.com/files/organizations/public/a00451ef-4012-4e3b-b021-b3aac258b12c/profile/4e46b111-987f-405f-ae17-c9482264709e-thumb.png" className = "center responsive-images" /> */}
                                     {element.Image == "http://127.0.0.1:8000/media/null" ?
                                     <img src = {defaultimg} className = "center responsive-images" width="150" height="150" />
                                      : <img alt="ax" src={element.Image} className="center responsive-images" width="150" height="150"/>
@@ -91,7 +102,7 @@ class TimeLine extends Component {
                                         </p>
                                         <hr/>
                                         <div className="search-text">
-                                        <span className = "serarch-text-right">{element.Owner}</span>
+                                        <span className = "serarch-text-right"><a href = {`/charities/${element.Owner}/`} onClick={event => this.CharityView(event,element.Owner)}>{element.Owner}</a></span>
                                         </div>
                                         <hr/>
                                         <Button onClick={this.togglePopup.bind(this,element.Content,element.Subject)}  variant="success" className = "center" size="md">
@@ -106,7 +117,7 @@ class TimeLine extends Component {
                 </section>
             </div>
         )
-    }
+        }
         const pop = (
             <div>
                         {this.state.showPopup ?

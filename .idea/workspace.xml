@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0abdd74f-e637-4bb9-9ce5-473f30c5e29d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/build.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/start.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SelectField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SelectField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/News.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/News.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/News.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/News.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/Seprator.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/Seprator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/Seprator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/Seprator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Search/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Search/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Search/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Search/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/SignUp/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/SignUp/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/SignUp/SignUpPerson.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/SignUp/SignUpPerson.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/benefactorProfile/benefactorDetails.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/benefactorProfile/benefactorDetails.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/benefactorProfile/benefactorDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/benefactorProfile/benefactorDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/benefactorProfile/benefactorEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/benefactorProfile/benefactorEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/benefactorProfile/followings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/benefactorProfile/followings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/benefactorProfile/timeLine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/benefactorProfile/timeLine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/charityProfile/charityDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/charityProfile/charityDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/charityProfile/charityEditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/charityProfile/charityEditProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/charityProfile/charityPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/charityProfile/charityPost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/charityProfile/charityViewDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/charityProfile/charityViewDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/charityProfile/charityViewPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/charityProfile/charityViewPosts.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/ashna-front.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="width" value="1380" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ashna-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ashna-front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ashna-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ashna-front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ashna-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ashna-front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ashna-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ashna-front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ashna-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ashna-front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="benefactorProfile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ashna-front" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ashna-front" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0abdd74f-e637-4bb9-9ce5-473f30c5e29d" name="Default Changelist" comment="" />
+      <created>1566140036320</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566140036320</updated>
+      <workItem from="1566140044690" duration="235000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="235000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="npm" side_tool="true" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24925596" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="67" column="20" lean-forward="true" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

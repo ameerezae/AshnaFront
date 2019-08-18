@@ -7,6 +7,7 @@ import {Alert} from 'react-bootstrap'
 class CharityDetails extends Component {
 
     state = {
+        IsFollowed : null,
         name : "",
         image : "",
         profile :{
@@ -18,11 +19,10 @@ class CharityDetails extends Component {
             FieldOfactivity : "",
             Bio : ""}
     }
-    
     componentWillMount() {
         console.log(localStorage.getItem('name'));
-        
-        fetch("http://127.0.0.1:8000/my_profile/"+localStorage.getItem('name'), {
+            
+        fetch(`http://127.0.0.1:8000/charities/${localStorage.getItem('CharityName')}`, {
           name : "profname",  
           headers: {
                 Authorization: `Token ${localStorage.getItem('token')}`
@@ -34,6 +34,8 @@ class CharityDetails extends Component {
     saveData = (json) => {
         this.setState({name : json.Name});
         this.setState({image: json.Image});
+        console.log(json.IsFollowed);
+        this.setState({IsFollowed:json.IsFollowed});
         var profile = {...this.state.profile}
         profile.ManagingDirector = json.ManagingDirector;
         profile.PhoneNumber = json.PhoneNumber;
@@ -45,15 +47,48 @@ class CharityDetails extends Component {
         this.setState({profile});
 
     }
-    handle_logout = (event) => {
-        localStorage.clear();
+    FollowOnclick = (event,name) =>{
+        console.log("ready to send data")
+        fetch('http://127.0.0.1:8000/follow/makerelation/', {
+        method: 'POST',
+        name : "makerelation",
+        headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(name)
+        }).then(res => res.json())
+            .then(json => this.followresponse(json))
+
     }
+    UnFollowOnclick = (event,name) => {
+        fetch("http://127.0.0.1:8000/follow/deleterelation/", {
+            method :"POST",
+            name : "deleterelation",  
+            headers: {
+                  Authorization: `Token ${localStorage.getItem('token')}`,
+                  'Content-Type': 'application/json'
+                },
+            body: JSON.stringify(name)
+          })
+             .then(response => response.json())
+             .then(json => this.followresponse(json))
+    }
+    followresponse = (json)=>{
+        if(json.IsFollowed == true){
+            this.setState({IsFollowed : true})
+        }
+        else{
+            this.setState({IsFollowed:false})
+        }
+    }
+    
     render() {
 
         const profile = (
             <div className = "profile_container">
                 <h4 className="name">{this.state.name}</h4>
-                <p className = "bio">{this.state.profile.Bio.slice(0,720)}</p>
+                <p className = "bio">{this.state.profile.Bio}</p>
                 <Alert variant="dark">
                 {/* <Alert.Heading>Hey, nice to see you</Alert.Heading> */}
                 <p>
@@ -87,6 +122,13 @@ class CharityDetails extends Component {
                 </Alert>
             </div>
         )
+        let followButt = null;
+        if(!this.state.IsFollowed){
+            followButt = <Button onClick = {event => this.FollowOnclick(event ,this.state.name)} className = "createPostButton"  variant="light">دنبال میکنم</Button>
+        }
+        else{
+            followButt = <Button onClick = {event => this.UnFollowOnclick(event ,this.state.name)} className = "createPostButton"  variant="success">دنبال شده</Button>
+        }
 
         const header = (
             <div className = "header_profile">
@@ -96,7 +138,7 @@ class CharityDetails extends Component {
                 <div className = "username_header">
                     <a>{this.state.name}</a>
                 </div>
-                <a href = {`/profile/charity/edit/${this.state.name}`} ><Button className = "createPostButton"  variant="light">ویرایش مشخصات</Button></a>
+                {followButt}
             </div>
         )
         const pannel = (
@@ -105,18 +147,16 @@ class CharityDetails extends Component {
                 <Button href={"/ashna"} variant="primary" className= "button_pannel" size="lg" block>
                     آشنا
                 </Button>
-                <Button href="/profile/charity/followers" variant="primary" className= "button_pannel" size="lg" block>
+                <Button variant="primary" className= "button_pannel" size="lg" block>
                     دنبال کنندگان
                 </Button>
-                <Button href = "/profile/charity/posts" variant="primary" className= "button_pannel" size="lg" block>
+                <Button href = {`/charities/${this.state.name}/posts`} variant="primary" className= "button_pannel" size="lg" block>
                     نوشته ها
                 </Button>
-                <Button href={"/profile/charity/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
+                <Button href={"/charities/"+this.state.name} variant="primary" className= "button_pannel" size="lg" block>
                 پروفایل               
                 </Button>
-                <Button href="/login" onClick = {event => this.handle_logout(event)} variant="primary" className= "button_pannel" size="lg" block>
-                خروج               
-                </Button>
+                
               
                 
             </div>

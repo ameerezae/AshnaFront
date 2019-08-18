@@ -55,3 +55,7 @@
     left: 95%;
     margin-bottom: 1rem;
   }
+
+  .donate-button {
+    position: relative;
+  }
