@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import "./followers.css";
+import "./Followers.css";
 import defaultimg from '../../components/charityDefaultImg.jpg';
 import {Button} from "react-bootstrap";
 import logo from "../../assets/charity2-01.png";
